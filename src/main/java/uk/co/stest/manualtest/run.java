@@ -5,8 +5,12 @@ import uk.co.stest.queues.InstructionQueue;
 
 public class run {
 	public static void main(String[] args) {
+		
 		InstructionQueue queue = new InstructionQueue();
-		InstructionMessage message1 = new InstructionMessage(23);
+		
+		InstructionMessage message1 = new InstructionMessage();
+		String x = "InstructionMessage A MZ89 5678 50 2015-03-05T10:04:56.012Z";
+		message1.receive(x);
 
 		
 		System.out.println("is empty " + queue.isEmpty());
