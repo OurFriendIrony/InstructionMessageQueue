@@ -22,7 +22,6 @@ public class InstructionMessage implements InstructionReceiver {
 		validateUOM(tokens[4]);
 		validateTimeStamp(tokens[5]);
 
-		this.uom = Integer.parseInt(tokens[4]);
 		this.timeStamp = tokens[5];
 
 	}
@@ -58,9 +57,13 @@ public class InstructionMessage implements InstructionReceiver {
 		}
 	}
 
-	private void validateUOM(String string) {
-		// TODO Auto-generated method stub
-
+	private void validateUOM(String uom) throws Exception {
+		int tmpUom = Integer.parseInt(uom);
+		if (tmpUom >= 0 && tmpUom < 256) {
+			this.uom = tmpUom;
+		} else {
+			throw new Exception("Invalid UOM: " + tmpUom);
+		}
 	}
 
 	private void validateTimeStamp(String string) {

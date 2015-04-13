@@ -33,16 +33,7 @@ public class run {
 		} catch (Exception e) {
 			System.err.println("message 3 failed: " + e.toString());
 		}
-
-		System.out.println("add in bad|");
-		InstructionMessage messageBad = new InstructionMessage();
-		try {
-			messageBad.receive("InstructionMessage D AA22 0 2 2015-03-05'T'10:04:56.012'Z'");
-			queue.enqueue(messageBad);
-		} catch (Exception e) {
-			System.err.println("message Bad failed: " + e.toString());
-		}
-		
+	
 		System.out.println("add in 4|");
 		InstructionMessage message4 = new InstructionMessage();
 		try {
@@ -64,5 +55,14 @@ public class run {
 			System.out.println();
 		}
 
+		System.out.println("add in bad|");
+		InstructionMessage messageBad = new InstructionMessage();
+		try {
+			messageBad.receive("InstructionMessage D AA22 1 256 2015-03-05'T'10:04:56.012'Z'");
+			queue.enqueue(messageBad);
+		} catch (Exception e) {
+			System.err.println("message Bad failed: " + e.toString());
+		}
+		System.out.println("is empty: " + queue.isEmpty());
 	}
 }
