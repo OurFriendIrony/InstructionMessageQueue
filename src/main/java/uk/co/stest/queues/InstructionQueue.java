@@ -11,30 +11,40 @@ public class InstructionQueue {
 	}
 
 	public void enqueue(InstructionMessage message) {
-		messages.add(message);
+		char messagePriority = message.getInstructionType();
+		int priorityPosition = getPriorityPosition(messagePriority);
+		messages.add(priorityPosition, message);
+	}
+
+	private int getPriorityPosition(char messagePriority) {
+		char indexedPriority;
+
+		for (int i = 0; i < count(); i++) {
+			indexedPriority = messages.get(i).getInstructionType();
+
+			if ((messagePriority < indexedPriority)) {
+				return i;
+			}
+		}
+
+		return count();
 	}
 
 	public InstructionMessage dequeue() {
-		// Returns the highest-priority message from the queue
-		// and returns it.
 		InstructionMessage popMessage = messages.get(0);
 		messages.remove(0);
 		return popMessage;
 	}
 
 	public InstructionMessage peek() {
-		// Returns the highest-priority message from the queue,
-		// without removing it
 		return messages.get(0);
 	}
 
 	public int count() {
-		// Returns the number of messages currently on the queue
 		return messages.size();
 	}
 
 	public boolean isEmpty() {
-		// Returns true if the queue is empty, false otherwise
 		return messages.isEmpty();
 	}
 
