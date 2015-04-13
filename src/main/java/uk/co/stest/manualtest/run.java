@@ -9,23 +9,48 @@ public class run {
 
 		System.out.println("add in 1|");
 		InstructionMessage message1 = new InstructionMessage();
-		message1.receive("InstructionMessage B MZ89 5678 50 2015-03-05'T'10:04:56.012'Z'");
-		queue.enqueue(message1);
+		try {
+			message1.receive("InstructionMessage B MZ89 5678 50 2015-03-05'T'10:04:56.012'Z'");
+			queue.enqueue(message1);
+		} catch (Exception e) {
+			System.err.println("message 1 failed: " + e.toString());
+		}
 
 		System.out.println("add in 2|");
 		InstructionMessage message2 = new InstructionMessage();
-		message2.receive("InstructionMessage A MZ11 1111 11 2015-03-05'T'10:04:56.012'Z'");
-		queue.enqueue(message2);
+		try {
+			message2.receive("InstructionMessage A MZ11 1111 11 2015-03-05'T'10:04:56.012'Z'");
+			queue.enqueue(message2);
+		} catch (Exception e) {
+			System.err.println("message 2 failed: " + e.toString());
+		}
 
 		System.out.println("add in 3|");
 		InstructionMessage message3 = new InstructionMessage();
-		message3.receive("InstructionMessage C MZ11 1111 11 2015-03-05'T'10:04:56.012'Z'");
-		queue.enqueue(message3);
+		try {
+			message3.receive("InstructionMessage C MZ11 1111 11 2015-03-05'T'10:04:56.012'Z'");
+			queue.enqueue(message3);
+		} catch (Exception e) {
+			System.err.println("message 3 failed: " + e.toString());
+		}
 
+		System.out.println("add in bad|");
+		InstructionMessage messageBad = new InstructionMessage();
+		try {
+			messageBad.receive("InstructionMessage E AA22 2222 2 2015-03-05'T'10:04:56.012'Z'");
+			queue.enqueue(messageBad);
+		} catch (Exception e) {
+			System.err.println("message Bad failed: " + e.toString());
+		}
+		
 		System.out.println("add in 4|");
 		InstructionMessage message4 = new InstructionMessage();
-		message4.receive("InstructionMessage A AA22 2222 2 2015-03-05'T'10:04:56.012'Z'");
-		queue.enqueue(message4);
+		try {
+			message4.receive("InstructionMessage A AA22 2222 2 2015-03-05'T'10:04:56.012'Z'");
+			queue.enqueue(message4);
+		} catch (Exception e) {
+			System.err.println("message 4 failed: " + e.toString());
+		}
 
 		System.out.println("is empty: " + queue.isEmpty());
 		System.out.println("count   : " + queue.count());
