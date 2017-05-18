@@ -1,9 +1,9 @@
-package uk.co.stest.manualtest;
+package uk.co.ourfriendirony.imq;
 
-import uk.co.stest.queues.InstructionMessage;
-import uk.co.stest.queues.InstructionQueue;
+import uk.co.ourfriendirony.imq.queues.InstructionMessage;
+import uk.co.ourfriendirony.imq.queues.InstructionQueue;
 
-public class run {
+public class ManualTest {
 	public static void main(String[] args) {
 		InstructionQueue queue = new InstructionQueue();
 

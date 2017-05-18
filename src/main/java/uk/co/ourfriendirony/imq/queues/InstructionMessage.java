@@ -1,9 +1,8 @@
-package uk.co.stest.queues;
+package uk.co.ourfriendirony.imq.queues;
 
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import uk.co.stest.interfaces.InstructionReceiver;
+import uk.co.ourfriendirony.imq.interfaces.InstructionReceiver;
 
 public class InstructionMessage implements InstructionReceiver {
 

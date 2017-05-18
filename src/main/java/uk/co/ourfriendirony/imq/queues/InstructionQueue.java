@@ -1,4 +1,4 @@
-package uk.co.stest.queues;
+package uk.co.ourfriendirony.imq.queues;
 
 import java.util.ArrayList;
 import java.util.List;
